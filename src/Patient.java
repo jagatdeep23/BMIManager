@@ -9,22 +9,26 @@ public class Patient {
    public void setName(String name){
         this.name =name;
     }
-    public void getName(String name){
-        this.name =name;
+    public String getName(){
+        return this.name;
     }
     public void setAge(int age){
         this.age =age;
     }
-    public void getAge(String name){
-        this.age =age;
-    }
-    public void getBMI(double bmi){
-        this.bmi =setDetail();
+     public int getAge() {
 
-    public double setDetail(double height,double width)
-    {
-       return this.width/(this.height*this.height);
+        return this.age;
     }
+    public double getBMI() {
+        return this.width / (this.height * this.height);
+    }
+
+    public void setDetail(double height,double width)
+    {
+       this.height= height;
+        this.width = width;
+    }
+
 
 
 }
