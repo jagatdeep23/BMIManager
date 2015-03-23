@@ -6,7 +6,7 @@ public class App {
 
 
     public static void main(String[] args) {
-        Patient patient = new Patient();
+        Patients patient = new Patients(2);
         running:
         while (true) {
             System.out.println("BMI Manager");
@@ -24,7 +24,14 @@ public class App {
 
                 {
 
-                    addPatient(patient, scanner);
+                    if (patient.isFull() == true)
+                    {
+                        System.out.println("database is full");
+                    }
+                    else {
+                    patient.add(createPatient(scanner));
+
+                }
                     break;
                 }
 
@@ -32,8 +39,11 @@ public class App {
                 case 2:
 
                 {
-                    viewPatient(patient);
-
+                    viewPatients(patient);
+                    if ( patient.isEmpty()==true)
+                    {
+                        System.out.println("database is Empty");
+                    }
                     break;
                 }
                 case 3: {
@@ -47,29 +57,35 @@ public class App {
         }
     }
 
-    private static void addPatient(Patient patient, Scanner scanner) {
+    private static Patient createPatient( Scanner scanner) {
 
         System.out.println("Enter patient name ");
         Scanner in = new Scanner(System.in);
         String name = in.nextLine();
-        patient.setName(name);
+
         System.out.println("Enter patient age ");
         int age = scanner.nextInt();
-        patient.setAge(age);
+
         System.out.println("Enter patient height ");
         double height = scanner.nextDouble();
+
         System.out.println("Enter patient Weight ");
         double width = scanner.nextDouble();
-        patient.setDetail(height, width);
+        return new Patient(name,age,height,width);
+
     }
 
-    private static void viewPatient(Patient patient) {
+    private static void viewPatients(Patients patients) {
+        for(int i=0; i<patients.count();++i)
+        {
+            Patient patient= patients.get(i);
         String message = String.format("Patient name is %s \n" +
                 " patient age is %d \n" +
                 " patient BMI is %.2f", patient.getName(), patient.getAge(), patient.getBMI());
             System.out.println(message);
 
         }
+    }
     }
 
 

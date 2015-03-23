@@ -5,16 +5,19 @@ public class Patient {
     private String name;
     private int age;
     private double height, width;
-
-   public void setName(String name){
-        this.name =name;
+    public  Patient(String name,int age,double height, double weight)
+    {
+        this.name= name;
+        this.age = age;
+        this.height= height;
+        this.width = width;
     }
+
+
     public String getName(){
         return this.name;
     }
-    public void setAge(int age){
-        this.age =age;
-    }
+
      public int getAge() {
 
         return this.age;
@@ -23,12 +26,8 @@ public class Patient {
         return this.width / (this.height * this.height);
     }
 
-    public void setDetail(double height,double width)
-    {
-       this.height= height;
-        this.width = width;
+
+    public void add(Patient patient) {
+
     }
-
-
-
 }
