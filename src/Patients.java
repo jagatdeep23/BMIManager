@@ -1,11 +1,13 @@
+import java.util.ArrayList;
+
 /**
  * Created by jc277043 on 23/03/15.
  */
 public class Patients {
-    Patient[] records;
+    ArrayList<Patient> records;
     int current;
-    public Patients(int MaxSize){
-        records= new Patient[MaxSize];
+    public Patients(){
+        records= new ArrayList<Patient>();
 
     }
 
@@ -13,22 +15,22 @@ public class Patients {
 
 
     public int count(){
-        return current;
+        return records.size();
     }
     public  void add(Patient patient){
-        records[current++]=patient;
+        records.add(patient);
 
     }
 
     public Patient get(int i) {
-        return records[i];
+        return records.get(i);
     }
-    public  boolean isFull()
+    //public  boolean isFull()
     {
-        return (current==records.length);
+      //  return (current==records.length);
     }
     public  boolean isEmpty()
     {
-        return (current==0);
+        return records.isEmpty();
     }
 }

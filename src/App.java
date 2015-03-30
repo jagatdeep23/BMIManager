@@ -6,7 +6,7 @@ public class App {
 
 
     public static void main(String[] args) {
-        Patients patient = new Patients(2);
+        Patients patient = new Patients();
         running:
         while (true) {
             System.out.println("BMI Manager");
@@ -24,15 +24,8 @@ public class App {
 
                 {
 
-                    if (patient.isFull() == true)
-                    {
-                        System.out.println("database is full");
-                    }
-                    else {
-                    patient.add(createPatient(scanner));
-
-                }
-                    break;
+                   patient.add(createPatient(scanner));
+                   break;
                 }
 
 
